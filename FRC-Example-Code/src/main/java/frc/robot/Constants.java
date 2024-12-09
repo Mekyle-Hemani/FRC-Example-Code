@@ -16,4 +16,19 @@ public final class Constants {
   public static class OperatorConstants {
     public static final int kDriverControllerPort = 0;
   }
+
+  public static class RobotConstants {
+    public static final int driveCurrentLimit = 60;
+  }
+
+  public static class MotorCANID {
+    public class DrivetrainID {
+      // Can IDs for 2024 Robot, change when we make a new one
+      public static final int frontLeftMotorCANID = 4;
+      public static final int frontRightMotorCANID = 2;
+      public static final int backLeftMotorCANID = 5;
+      public static final int backRightMotorCANID = 3;
+      
+    }
+  }
 }

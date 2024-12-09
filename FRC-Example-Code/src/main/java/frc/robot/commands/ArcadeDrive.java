@@ -11,6 +11,7 @@ public class ArcadeDrive extends Command{
     private final DoubleSupplier m_speedSupplier;
     private final DoubleSupplier m_rotationSupplier;
 
+    // Constructor for the command
     public ArcadeDrive(Drivetrain drivetrain, DoubleSupplier speedSupplier, DoubleSupplier rotationSupplier) {
         m_drivetrain = drivetrain;
 
@@ -25,6 +26,8 @@ public class ArcadeDrive extends Command{
     // Called every time the scheduler runs while the command is scheduled.
     @Override
     public void execute() {
+
+        // call the arcadeDrive() function in the drivetrain subsystem
         m_drivetrain.arcadeDrive(m_speedSupplier.getAsDouble(), m_rotationSupplier.getAsDouble());
     }
 }

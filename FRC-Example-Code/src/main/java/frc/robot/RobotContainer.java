@@ -11,6 +11,8 @@ import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.button.CommandJoystick;
+import edu.wpi.first.wpilibj2.command.button.CommandPS5Controller;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 
@@ -26,9 +28,7 @@ public class RobotContainer {
 
   private final Drivetrain drivetrain = new Drivetrain();
 
-  // Replace with CommandPS4Controller or CommandJoystick if needed
-  private final CommandXboxController m_driverController =
-      new CommandXboxController(OperatorConstants.kDriverControllerPort);
+  private final CommandPS5Controller driveController = new CommandPS5Controller(OperatorConstants.kDriverControllerPort);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -53,7 +53,7 @@ public class RobotContainer {
 
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
-    m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
+    
   }
 
   /**
@@ -67,14 +67,14 @@ public class RobotContainer {
   }
 
   private void setupDefaultCommands(){
-    // drivetrain.setDefaultCommand(
-    //   new ArcadeDrive(
-    //     drivetrain,
-    //     () -> (Math.pow(-this.driveController.getLeftY(), 3))*Math.abs(operatorController.getRawAxis(3)),
+    
+    drivetrain.setDefaultCommand(
+      new ArcadeDrive(
+        drivetrain, 
+        () -> this.driveController.getLeftY(), 
+        () -> this.driveController.getRawAxis(4)
+        )
+    );
 
-    //     // () -> this.driveController.getRightX()/1.05 // for PS5
-    //     () -> this.driveController.getRawAxis(4)*Math.abs(operatorController.getRawAxis(3)) // for logitech
-    //   )
-    // );
   }
 }

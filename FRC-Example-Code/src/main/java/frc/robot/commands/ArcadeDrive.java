@@ -15,6 +15,8 @@ public class ArcadeDrive extends Command{
     public ArcadeDrive(Drivetrain drivetrain, DoubleSupplier speedSupplier, DoubleSupplier rotationSupplier) {
         m_drivetrain = drivetrain;
 
+        this.addRequirements(drivetrain);
+        
         m_speedSupplier = speedSupplier;
         m_rotationSupplier = rotationSupplier;
     }

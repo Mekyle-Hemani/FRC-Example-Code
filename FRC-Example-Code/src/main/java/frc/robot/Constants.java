@@ -24,10 +24,10 @@ public final class Constants {
   public static class MotorCANID {
     public class DrivetrainID {
       // Can IDs for 2024 Robot, change when we make a new one
-      public static final int frontLeftMotorCANID = 4;
-      public static final int frontRightMotorCANID = 2;
-      public static final int backLeftMotorCANID = 5;
-      public static final int backRightMotorCANID = 3;
+      public static final int leftLeaderCANID = 2;
+      public static final int rightLeaderCANID = 4;
+      public static final int leftFollowerCANID = 6;
+      public static final int rightFollowerCANID = 8;
       
     }
   }
